@@ -14,7 +14,7 @@ In this project I use:
 * Angular libs
 * Testing
 
-Notice: dont forget build lib email-form with command before serve or build project
+Notice: Don't forget to build lib email-form with command before serve or build project
 ```sh
 ng build email-form
 ```
