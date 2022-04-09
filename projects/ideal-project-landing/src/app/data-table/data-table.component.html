@@ -1,0 +1,10 @@
+<div mat-table class="data-table">
+    <div class="head-row" *ngIf="tableColumns$ | async as columns">
+        <div *ngFor="let column of columns" class="column">{{ column }}</div>
+    </div>
+    <ng-container *ngIf="tableData$ | async as rowData">
+        <div class="row" [class.selected]="row.id === selectedId" *ngFor="let row of rowData" (click)="clickOnRow(row)">
+            <div class="column" *ngFor="let col of row.rowData">{{ col }}</div>
+        </div>
+    </ng-container>
+</div>

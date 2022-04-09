@@ -1,0 +1,8 @@
+.dialog-wrapper {
+    max-width: 600px;
+    .controls {
+        display: flex;
+        justify-content: right;
+        margin-top: 10px;
+    }
+}

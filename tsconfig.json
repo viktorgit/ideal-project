@@ -5,8 +5,19 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
+    "strictPropertyInitialization": false,
     "strict": true,
     "noImplicitOverride": true,
+    "paths": {
+      "email-form": [
+        "dist/email-form/email-form",
+        "dist/email-form"
+      ],
+      "ideal-project": [
+        "dist/ideal-project/ideal-project",
+        "dist/ideal-project"
+      ]
+    },
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,

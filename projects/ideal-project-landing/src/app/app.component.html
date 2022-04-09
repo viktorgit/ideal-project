@@ -1,0 +1,41 @@
+<div class="facade" [class]="(facadeState$ | async)?.theme">
+  <div class="title-row">
+    <div>Kabanov Viktor. How do I see ideal Angular project</div>
+    <div>
+      <button (click)="changeTheme()" mat-button color="primary">Change theme</button>
+      <button (click)="myBestSidesDialog()" mat-button color="primary">My best sides</button>
+      <button (click)="notMyBestSidesDialog()" mat-button color="primary">Not my best sides</button>
+    </div>
+  </div>
+  <div class="landing-section">
+    <div class="section-block">
+      <div class="description">
+        <p>Ideal Angular project for me starts with workspace. Monolith consist of workspace with projects and libs - general-purpose modules that can required in different projects.</p>
+        <p>Form under this text - is single library that we can used in another projects.</p>
+        <p>Please fill and submit the form.</p>
+      </div>
+      <lib-email-form (submitEmailForm)="onEmailFormSubmit($event)"></lib-email-form>
+    </div>
+  </div>
+  <div class="landing-section">
+    <div class="section-block">
+      <div class="description">
+        <p>Approach to the Angular components I see with next principles:</p>
+        <p>Clean Dependencies: we must use DI when we process or provide data</p>
+        <p>Use RxJs for data mapping with async pipe - its usefull minimized excess variables and divide component data type and template</p>
+        <p>Dumb components: we need pass handlers to parent module as much as possible</p>
+        <p>SOLID principles (Angular helps develop with SOLID)</p>
+        <p>Table under this text show its principles (in code).</p>
+      </div>
+      <app-data-table></app-data-table>
+    </div>
+  </div>
+  <div class="landing-section">
+    <div class="section-block">
+      <button (click)="lazyLoadModule($event)" mat-button color="primary">Load more</button>
+    </div>
+    <div class="section-block">
+      <ng-template #container></ng-template>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<form [formGroup]="emailForm" ngxsForm="formState.emailForm">
+    <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="firstName" maxlength="256" placeholder="Ivan">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Surname</mat-label>
+        <input matInput formControlName="lastName" maxlength="256" placeholder="Ivanov">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>email</mat-label>
+        <input matInput formControlName="email" placeholder="test@test">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="phone" mask="0 (000) 000-00-00" placeholder="+7 999 999 99 99">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Message</mat-label>
+        <textarea  formControlName="text" matInput></textarea>
+    </mat-form-field>
+    <div class="form-row">
+        <button (click)="onSubmit()" [disabled]="!emailForm.valid" mat-button color="primary">Submit</button>
+    </div>
+</form>

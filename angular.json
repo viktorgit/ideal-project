@@ -3,5 +3,173 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ideal-project": {
+      "projectType": "library",
+      "root": "projects/ideal-project",
+      "sourceRoot": "projects/ideal-project/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ideal-project/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ideal-project/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ideal-project/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ideal-project/src/test.ts",
+            "tsConfig": "projects/ideal-project/tsconfig.spec.json",
+            "karmaConfig": "projects/ideal-project/karma.conf.js"
+          }
+        }
+      }
+    },
+    "ideal-project-landing": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/ideal-project-landing",
+      "sourceRoot": "projects/ideal-project-landing/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ideal-project-landing",
+            "index": "projects/ideal-project-landing/src/index.html",
+            "main": "projects/ideal-project-landing/src/main.ts",
+            "polyfills": "projects/ideal-project-landing/src/polyfills.ts",
+            "tsConfig": "projects/ideal-project-landing/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/ideal-project-landing/src/favicon.ico",
+              "projects/ideal-project-landing/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/ideal-project-landing/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/ideal-project-landing/src/environments/environment.ts",
+                  "with": "projects/ideal-project-landing/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "ideal-project-landing:build:production"
+            },
+            "development": {
+              "browserTarget": "ideal-project-landing:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ideal-project-landing:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ideal-project-landing/src/test.ts",
+            "polyfills": "projects/ideal-project-landing/src/polyfills.ts",
+            "tsConfig": "projects/ideal-project-landing/tsconfig.spec.json",
+            "karmaConfig": "projects/ideal-project-landing/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/ideal-project-landing/src/favicon.ico",
+              "projects/ideal-project-landing/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/ideal-project-landing/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "email-form": {
+      "projectType": "library",
+      "root": "projects/email-form",
+      "sourceRoot": "projects/email-form/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/email-form/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/email-form/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/email-form/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/email-form/src/test.ts",
+            "tsConfig": "projects/email-form/tsconfig.spec.json",
+            "karmaConfig": "projects/email-form/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ideal-project"
 }

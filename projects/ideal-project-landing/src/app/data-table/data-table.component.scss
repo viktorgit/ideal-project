@@ -1,0 +1,25 @@
+.data-table {
+    width: 100%;
+}
+.head-row, .row {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    .column {
+        flex-grow: 1;
+        flex-basis: 150px;
+        align-self: center;
+    }
+}
+.row {
+    cursor: pointer;
+    &.selected {
+        border: 1px solid #769dff;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+}
+.head-row {
+    color: #797979;
+    font-weight: 500; 
+}
